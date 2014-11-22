@@ -7,7 +7,7 @@
  * mathematical functions, and a flexible expression parser.
  *
  * @version 1.1.1-SNAPSHOT
- * @date    2014-11-15
+ * @date    2014-11-22
  *
  * @license
  * Copyright (C) 2013-2014 Jos de Jong <wjosdejong@gmail.com>
@@ -269,14 +269,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // functions - arithmetic
 	  __webpack_require__(33)(math, _config);
-	  __webpack_require__(34)(math, _config);
-	  __webpack_require__(35)(math, _config);
 	  __webpack_require__(36)(math, _config);
 	  __webpack_require__(37)(math, _config);
+	  __webpack_require__(34)(math, _config);
+	  __webpack_require__(35)(math, _config);
 	  __webpack_require__(38)(math, _config);
 	  __webpack_require__(39)(math, _config);
-	  __webpack_require__(40)(math, _config);
 	  __webpack_require__(41)(math, _config);
+	  __webpack_require__(40)(math, _config);
 	  __webpack_require__(42)(math, _config);
 	  __webpack_require__(43)(math, _config);
 	  __webpack_require__(44)(math, _config);
@@ -308,9 +308,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  __webpack_require__(68)(math, _config);
 
 	  // functions - complex
+	  __webpack_require__(71)(math, _config);
 	  __webpack_require__(69)(math, _config);
 	  __webpack_require__(70)(math, _config);
-	  __webpack_require__(71)(math, _config);
 	  __webpack_require__(72)(math, _config);
 
 	  // functions - construction
@@ -3164,9 +3164,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  foot: {name: 'foot', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.3048, offset: 0},
 	  yard: {name: 'yard', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.9144, offset: 0},
 	  mile: {name: 'mile', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 1609.344, offset: 0},
-	  link: {name: 'link', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.201168, offset: 0},
-	  rod: {name: 'rod', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 5.029210, offset: 0},
-	  chain: {name: 'chain', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 20.1168, offset: 0},
+	  //link: {name: 'link', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.201168, offset: 0},
+	  // rod: {name: 'rod', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 5.029210, offset: 0},
+	  // chain: {name: 'chain', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 20.1168, offset: 0},
 	  angstrom: {name: 'angstrom', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 1e-10, offset: 0},
 
 	  m: {name: 'm', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
@@ -3174,10 +3174,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  ft: {name: 'ft', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.3048, offset: 0},
 	  yd: {name: 'yd', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.9144, offset: 0},
 	  mi: {name: 'mi', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 1609.344, offset: 0},
-	  li: {name: 'li', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.201168, offset: 0},
-	  rd: {name: 'rd', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 5.029210, offset: 0},
-	  ch: {name: 'ch', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 20.1168, offset: 0},
-	  mil: {name: 'mil', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.0000254, offset: 0}, // 1/1000 inch
+	  // li: {name: 'li', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.201168, offset: 0},
+	  // rd: {name: 'rd', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 5.029210, offset: 0},
+	  // ch: {name: 'ch', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 20.1168, offset: 0},
+	  // mil: {name: 'mil', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.0000254, offset: 0}, // 1/1000 inch
 
 	  // Surface
 	  m2: {name: 'm2', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.SQUARED, value: 1, offset: 0},
@@ -3185,79 +3185,83 @@ return /******/ (function(modules) { // webpackBootstrap
 	  sqft: {name: 'sqft', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.09290304, offset: 0}, // 0.09290304 m2
 	  sqyd: {name: 'sqyd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.83612736, offset: 0}, // 0.83612736 m2
 	  sqmi: {name: 'sqmi', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 2589988.110336, offset: 0}, // 2.589988110336 km2
-	  sqrd: {name: 'sqrd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 25.29295, offset: 0}, // 25.29295 m2
-	  sqch: {name: 'sqch', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 404.6873, offset: 0}, // 404.6873 m2
-	  sqmil: {name: 'sqmil', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 6.4516e-10, offset: 0}, // 6.4516 * 10^-10 m2
+	  // sqrd: {name: 'sqrd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 25.29295, offset: 0}, // 25.29295 m2
+	  // sqch: {name: 'sqch', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 404.6873, offset: 0}, // 404.6873 m2
+	  // sqmil: {name: 'sqmil', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 6.4516e-10, offset: 0}, // 6.4516 * 10^-10 m2
 
 	  // Volume
 	  m3: {name: 'm3', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.CUBIC, value: 1, offset: 0},
 	  L: {name: 'L', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.SHORT, value: 0.001, offset: 0}, // litre
 	  l: {name: 'l', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.SHORT, value: 0.001, offset: 0}, // litre
-	  litre: {name: 'litre', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.LONG, value: 0.001, offset: 0},
+	  //litre: {name: 'litre', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.LONG, value: 0.001, offset: 0},
+	  liter: {name: 'liter', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.LONG, value: 0.001, offset: 0},
 	  cuin: {name: 'cuin', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 1.6387064e-5, offset: 0}, // 1.6387064e-5 m3
 	  cuft: {name: 'cuft', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.028316846592, offset: 0}, // 28.316 846 592 L
 	  cuyd: {name: 'cuyd', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.764554857984, offset: 0}, // 764.554 857 984 L
-	  teaspoon: {name: 'teaspoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000005, offset: 0}, // 5 mL
-	  tablespoon: {name: 'tablespoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000015, offset: 0}, // 15 mL
+	  //teaspoon: {name: 'teaspoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000005, offset: 0}, // 5 mL
+	  //tablespoon: {name: 'tablespoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000015, offset: 0}, // 15 mL
 	  //{name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000240, offset: 0}, // 240 mL  // not possible, we have already another cup
-	  drop: {name: 'drop', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
-	  gtt: {name: 'gtt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
+	  //drop: {name: 'drop', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
+	  //gtt: {name: 'gtt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
 
 	  // Liquid volume
-	  minim: {name: 'minim', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0}, // 0.06161152 mL
-	  fluiddram: {name: 'fluiddram', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
-	  fluidounce: {name: 'fluidounce', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
-	  gill: {name: 'gill', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
-	  cc: {name: 'cc', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 1e-6, offset: 0}, // 1e-6 L
-	  cup: {name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
-	  pint: {name: 'pint', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
-	  quart: {name: 'quart', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
+	  // minim: {name: 'minim', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0}, // 0.06161152 mL
+	  // fluiddram: {name: 'fluiddram', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
+	  // fluidounce: {name: 'fluidounce', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
+	  // gill: {name: 'gill', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
+	  // cc: {name: 'cc', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 1e-6, offset: 0}, // 1e-6 L
+	  // cup: {name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
+	  // pint: {name: 'pint', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
+	  // quart: {name: 'quart', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
 	  gallon: {name: 'gallon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412 L
-	  beerbarrel: {name: 'beerbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
-	  oilbarrel: {name: 'oilbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
-	  hogshead: {name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, // 238.4810 L
+	  // beerbarrel: {name: 'beerbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
+	  // oilbarrel: {name: 'oilbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
+	  // hogshead: {name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, // 238.4810 L
 
 	  //{name: 'min', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0}, // 0.06161152 mL // min is already in use as minute
-	  fldr: {name: 'fldr', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
-	  floz: {name: 'floz', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
-	  gi: {name: 'gi', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
-	  cp: {name: 'cp', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
-	  pt: {name: 'pt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
-	  qt: {name: 'qt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
-	  gal: {name: 'gal', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412 L
-	  bbl: {name: 'bbl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
-	  obl: {name: 'obl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
+	  // fldr: {name: 'fldr', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
+	  // floz: {name: 'floz', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
+	  // gi: {name: 'gi', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
+	  // cp: {name: 'cp', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
+	  // pt: {name: 'pt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
+	  // qt: {name: 'qt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
+	  // gal: {name: 'gal', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412 L
+	  // bbl: {name: 'bbl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
+	  // obl: {name: 'obl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
 	  //{name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, // 238.4810 L // TODO: hh?
 
 	  // Mass
 	  g: {name: 'g', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 0.001, offset: 0},
 	  gram: {name: 'gram', base: BASE_UNITS.MASS, prefixes: PREFIXES.LONG, value: 0.001, offset: 0},
 
-	  ton: {name: 'ton', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 907.18474, offset: 0},
-	  tonne: {name: 'tonne', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 1000, offset: 0},
+	  ton: {name: 'ton', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 1000, offset: 0},
+	  t: {name: 't', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 1000, offset: 0},
+	  // tonne: {name: 'tonne', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 1000, offset: 0},
 
-	  grain: {name: 'grain', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
-	  dram: {name: 'dram', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 1.7718451953125e-3, offset: 0},
+	  // grain: {name: 'grain', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
+	  // dram: {name: 'dram', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 1.7718451953125e-3, offset: 0},
 	  ounce: {name: 'ounce', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 28.349523125e-3, offset: 0},
 	  poundmass: {name: 'poundmass', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 453.59237e-3, offset: 0},
-	  hundredweight: {name: 'hundredweight', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 45.359237, offset: 0},
-	  stick: {name: 'stick', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 115e-3, offset: 0},
+	  // hundredweight: {name: 'hundredweight', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 45.359237, offset: 0},
+	  // stick: {name: 'stick', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 115e-3, offset: 0},
 
-	  gr: {name: 'gr', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
-	  dr: {name: 'dr', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 1.7718451953125e-3, offset: 0},
+	  // gr: {name: 'gr', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
+	  // dr: {name: 'dr', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 1.7718451953125e-3, offset: 0},
 	  oz: {name: 'oz', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 28.349523125e-3, offset: 0},
 	  lbm: {name: 'lbm', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 453.59237e-3, offset: 0},
-	  cwt: {name: 'cwt', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 45.359237, offset: 0},
+	  // cwt: {name: 'cwt', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 45.359237, offset: 0},
 
 	  // Time
-	  s: {name: 's', base: BASE_UNITS.TIME, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
-	  min: {name: 'min', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 60, offset: 0},
-	  h: {name: 'h', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 3600, offset: 0},
+	  // s: {name: 's', base: BASE_UNITS.TIME, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
+	  s: {name: 's', base: BASE_UNITS.TIME, prefixes: PREFIXES.LONG, value: 1, offset: 0},
 	  second: {name: 'second', base: BASE_UNITS.TIME, prefixes: PREFIXES.LONG, value: 1, offset: 0},
-	  sec: {name: 'sec', base: BASE_UNITS.TIME, prefixes: PREFIXES.LONG, value: 1, offset: 0},
 	  minute: {name: 'minute', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 60, offset: 0},
 	  hour: {name: 'hour', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 3600, offset: 0},
+	  hr: {name: 'hr', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 3600, offset: 0},
 	  day: {name: 'day', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 86400, offset: 0},
+	  week: {name: 'week', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 604800, offset: 0},
+	  yr: {name: 'yr', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 31536000, offset: 0},
+	  year: {name: 'year', base: BASE_UNITS.TIME, prefixes: PREFIXES.NONE, value: 31536000, offset: 0},
 
 	  // Angle
 	  rad: {name: 'rad', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
@@ -3269,7 +3273,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  cycle: {name: 'cycle', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 6.2831853071795864769252867665793, offset: 0},
 
 	  // Electric current
-	  A: {name: 'A', base: BASE_UNITS.CURRENT, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
+	  // A is not so widely used
+	  //A: {name: 'A', base: BASE_UNITS.CURRENT, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
+	  amp: {name: 'amp', base: BASE_UNITS.CURRENT, prefixes: PREFIXES.LONG, value: 1, offset: 0},
 	  ampere: {name: 'ampere', base: BASE_UNITS.CURRENT, prefixes: PREFIXES.LONG, value: 1, offset: 0},
 
 	  // Temperature
@@ -3279,11 +3285,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  K: {name: 'K', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 	  degC: {name: 'degC', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 273.15},
 	  degF: {name: 'degF', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 459.67},
-	  degR: {name: 'degR', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
-	  kelvin: {name: 'kelvin', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
-	  celsius: {name: 'celsius', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 273.15},
-	  fahrenheit: {name: 'fahrenheit', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 459.67},
-	  rankine: {name: 'rankine', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
+	  //degR: {name: 'degR', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
+	  //kelvin: {name: 'kelvin', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
+	  //celsius: {name: 'celsius', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 273.15},
+	  //fahrenheit: {name: 'fahrenheit', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 459.67},
+	  //rankine: {name: 'rankine', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
 
 	  // amount of substance
 	  mol: {name: 'mol', base: BASE_UNITS.AMOUNT_OF_SUBSTANCE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
@@ -3291,16 +3297,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // luminous intensity
 	  cd: {name: 'cd', base: BASE_UNITS.LUMINOUS_INTENSITY, prefixes: PREFIXES.NONE, value: 1, offset: 0},
-	  candela: {name: 'candela', base: BASE_UNITS.LUMINOUS_INTENSITY, prefixes: PREFIXES.NONE, value: 1, offset: 0},
+	  //candela: {name: 'candela', base: BASE_UNITS.LUMINOUS_INTENSITY, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 	  // TODO: units STERADIAN
 	  //{name: 'sr', base: BASE_UNITS.STERADIAN, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 	  //{name: 'steradian', base: BASE_UNITS.STERADIAN, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 
 	  // Force
 	  N: {name: 'N', base: BASE_UNITS.FORCE, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
-	  newton: {name: 'newton', base: BASE_UNITS.FORCE, prefixes: PREFIXES.LONG, value: 1, offset: 0},
-	  lbf: {name: 'lbf', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
-	  poundforce: {name: 'poundforce', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
+	  //value is from Google
+	  gw: {name: 'gw', base: BASE_UNITS.FORCE, prefixes: PREFIXES.SHORT, value: 1/980.665, offset: 0},
+	  //newton: {name: 'newton', base: BASE_UNITS.FORCE, prefixes: PREFIXES.LONG, value: 1, offset: 0},
+	  //lbf: {name: 'lbf', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
+	  //poundforce: {name: 'poundforce', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
 
 	  // Binary
 	  b: {name: 'b', base: BASE_UNITS.BIT, prefixes: PREFIXES.BINARY_SHORT, value: 1, offset: 0},
@@ -3316,41 +3324,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	  feet: 'foot',
 	  yards: 'yard',
 	  miles: 'mile',
-	  links: 'link',
-	  rods: 'rod',
-	  chains: 'chain',
+	  // links: 'link',
+	  // rods: 'rod',
+	  // chains: 'chain',
 	  angstroms: 'angstrom',
 
-	  litres: 'litre',
-	  teaspoons: 'teaspoon',
-	  tablespoons: 'tablespoon',
-	  minims: 'minim',
-	  fluiddrams: 'fluiddram',
-	  fluidounces: 'fluidounce',
-	  gills: 'gill',
-	  cups: 'cup',
-	  pints: 'pint',
-	  quarts: 'quart',
+	  // litres: 'litre',
+	  liters: 'liter',
+	  // teaspoons: 'teaspoon',
+	  // tablespoons: 'tablespoon',
+	  // minims: 'minim',
+	  // fluiddrams: 'fluiddram',
+	  // fluidounces: 'fluidounce',
+	  // gills: 'gill',
+	  // cups: 'cup',
+	  // pints: 'pint',
+	  // quarts: 'quart',
 	  gallons: 'gallon',
-	  beerbarrels: 'beerbarrel',
-	  oilbarrels: 'oilbarrel',
-	  hogsheads: 'hogshead',
-	  gtts: 'gtt',
+	  // beerbarrels: 'beerbarrel',
+	  // oilbarrels: 'oilbarrel',
+	  // hogsheads: 'hogshead',
+	  // gtts: 'gtt',
 
 	  grams: 'gram',
 	  tons: 'ton',
-	  tonnes: 'tonne',
-	  grains: 'grain',
-	  drams: 'dram',
+	  // tonnes: 'tonne',
+	  // grains: 'grain',
+	  // drams: 'dram',
 	  ounces: 'ounce',
 	  poundmasses: 'poundmass',
-	  hundredweights: 'hundredweight',
-	  sticks: 'stick',
+	  // hundredweights: 'hundredweight',
+	  // sticks: 'stick',
 
 	  seconds: 'second',
 	  minutes: 'minute',
 	  hours: 'hour',
 	  days: 'day',
+	  weeks: 'week',
+	  years: 'year',
 
 	  radians: 'rad',
 	  degrees: 'deg',
@@ -6322,247 +6333,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      BigNumber = math.type.BigNumber,
 	      Complex = __webpack_require__(6),
-	      Matrix = __webpack_require__(9),
-	      Unit = __webpack_require__(10),
-	      collection = __webpack_require__(13),
-
-	      isBoolean = util['boolean'].isBoolean,
-	      isNumber = util.number.isNumber,
-	      isString = util.string.isString,
-	      isComplex = Complex.isComplex,
-	      isUnit = Unit.isUnit,
-	      isCollection = collection.isCollection;
-
-	  /**
-	   * Add two values, `x + y`.
-	   * For matrices, the function is evaluated element wise.
-	   *
-	   * Syntax:
-	   *
-	   *    math.add(x, y)
-	   *
-	   * Examples:
-	   *
-	   *    math.add(2, 3);               // returns Number 5
-	   *
-	   *    var a = math.complex(2, 3);
-	   *    var b = math.complex(-4, 1);
-	   *    math.add(a, b);               // returns Complex -2 + 4i
-	   *
-	   *    math.add([1, 2, 3], 4);       // returns Array [5, 6, 7]
-	   *
-	   *    var c = math.unit('5 cm');
-	   *    var d = math.unit('2.1 mm');
-	   *    math.add(c, d);               // returns Unit 52.1 mm
-	   *
-	   * See also:
-	   *
-	   *    subtract
-	   *
-	   * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} x First value to add
-	   * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} y Second value to add
-	   * @return {Number | BigNumber | Complex | Unit | String | Array | Matrix} Sum of `x` and `y`
-	   */
-	  math.add = function add(x, y) {
-	    if (arguments.length != 2) {
-	      throw new math.error.ArgumentsError('add', arguments.length, 2);
-	    }
-
-	    if (isNumber(x)) {
-	      if (isNumber(y)) {
-	        // number + number
-	        return x + y;
-	      }
-	      else if (isComplex(y)) {
-	        // number + complex
-	        return new Complex(
-	            x + y.re,
-	            y.im
-	        )
-	      }
-	    }
-
-	    if (isComplex(x)) {
-	      if (isComplex(y)) {
-	        // complex + complex
-	        return new Complex(
-	            x.re + y.re,
-	            x.im + y.im
-	        );
-	      }
-	      else if (isNumber(y)) {
-	        // complex + number
-	        return new Complex(
-	            x.re + y,
-	            x.im
-	        )
-	      }
-	    }
-
-	    if (isUnit(x)) {
-	      if (isUnit(y)) {
-	        if (x.value == null) {
-	          throw new Error('Parameter x contains a unit with undefined value');
-	        }
-
-	        if (y.value == null) {
-	          throw new Error('Parameter y contains a unit with undefined value');
-	        }
-
-	        if (!x.equalBase(y)) {
-	          throw new Error('Units do not match');
-	        }
-
-	        var res = x.clone();
-	        res.value += y.value;
-	        res.fixPrefix = false;
-	        return res;
-	      }
-	    }
-
-	    if (x instanceof BigNumber) {
-	      // try to convert to big number
-	      if (isNumber(y)) {
-	        y = BigNumber.convert(y);
-	      }
-	      else if (isBoolean(y) || y === null) {
-	        y = new BigNumber(y ? 1 : 0);
-	      }
-
-	      if (y instanceof BigNumber) {
-	        return x.plus(y);
-	      }
-
-	      // downgrade to Number
-	      return add(x.toNumber(), y);
-	    }
-	    if (y instanceof BigNumber) {
-	      // try to convert to big number
-	      if (isNumber(x)) {
-	        x = BigNumber.convert(x);
-	      }
-	      else if (isBoolean(x) || x === null) {
-	        x = new BigNumber(x ? 1 : 0);
-	      }
-
-	      if (x instanceof BigNumber) {
-	        return x.plus(y)
-	      }
-
-	      // downgrade to Number
-	      return add(x, y.toNumber());
-	    }
-
-	    if (isCollection(x) || isCollection(y)) {
-	      return collection.deepMap2(x, y, add);
-	    }
-
-	    if (isString(x) || isString(y)) {
-	      return x + y;
-	    }
-
-	    if (isBoolean(x) || x === null) {
-	      return add(+x, y);
-	    }
-	    if (isBoolean(y) || y === null) {
-	      return add(x, +y);
-	    }
-
-	    throw new math.error.UnsupportedTypeError('add', math['typeof'](x), math['typeof'](y));
-	  };
-	};
-
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = function (math) {
-	  var util = __webpack_require__(147),
-
-	      BigNumber = math.type.BigNumber,
-	      Complex = __webpack_require__(6),
-	      collection = __webpack_require__(13),
-
-	      isNumber = util.number.isNumber,
-	      isBoolean = util['boolean'].isBoolean,
-	      isCollection =collection.isCollection,
-	      isComplex = Complex.isComplex;
-
-	  /**
-	   * Round a value towards plus infinity
-	   * If `x` is complex, both real and imaginary part are rounded towards plus infinity.
-	   * For matrices, the function is evaluated element wise.
-	   *
-	   * Syntax:
-	   *
-	   *    math.ceil(x)
-	   *
-	   * Examples:
-	   *
-	   *    math.ceil(3.2);               // returns Number 4
-	   *    math.ceil(3.8);               // returns Number 4
-	   *    math.ceil(-4.2);              // returns Number -4
-	   *    math.ceil(-4.7);              // returns Number -4
-	   *
-	   *    var c = math.complex(3.2, -2.7);
-	   *    math.ceil(c);                 // returns Complex 4 - 2i
-	   *
-	   *    math.ceil([3.2, 3.8, -4.7]);  // returns Array [4, 4, -4]
-	   *
-	   * See also:
-	   *
-	   *    floor, fix, round
-	   *
-	   * @param  {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  Number to be rounded
-	   * @return {Number | BigNumber | Complex | Array | Matrix} Rounded value
-	   */
-	  math.ceil = function ceil(x) {
-	    if (arguments.length != 1) {
-	      throw new math.error.ArgumentsError('ceil', arguments.length, 1);
-	    }
-
-	    if (isNumber(x)) {
-	      return Math.ceil(x);
-	    }
-
-	    if (isComplex(x)) {
-	      return new Complex (
-	          Math.ceil(x.re),
-	          Math.ceil(x.im)
-	      );
-	    }
-
-	    if (x instanceof BigNumber) {
-	      return x.ceil();
-	    }
-
-	    if (isCollection(x)) {
-	      return collection.deepMap(x, ceil);
-	    }
-
-	    if (isBoolean(x) || x === null) {
-	      return Math.ceil(x);
-	    }
-
-	    throw new math.error.UnsupportedTypeError('ceil', math['typeof'](x));
-	  };
-	};
-
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = function (math) {
-	  var util = __webpack_require__(147),
-
-	      BigNumber = math.type.BigNumber,
-	      Complex = __webpack_require__(6),
 	      collection = __webpack_require__(13),
 
 	      isNumber = util.number.isNumber,
@@ -6625,7 +6395,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 37 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6800,6 +6570,247 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (math) {
+	  var util = __webpack_require__(147),
+
+	      BigNumber = math.type.BigNumber,
+	      Complex = __webpack_require__(6),
+	      Matrix = __webpack_require__(9),
+	      Unit = __webpack_require__(10),
+	      collection = __webpack_require__(13),
+
+	      isBoolean = util['boolean'].isBoolean,
+	      isNumber = util.number.isNumber,
+	      isString = util.string.isString,
+	      isComplex = Complex.isComplex,
+	      isUnit = Unit.isUnit,
+	      isCollection = collection.isCollection;
+
+	  /**
+	   * Add two values, `x + y`.
+	   * For matrices, the function is evaluated element wise.
+	   *
+	   * Syntax:
+	   *
+	   *    math.add(x, y)
+	   *
+	   * Examples:
+	   *
+	   *    math.add(2, 3);               // returns Number 5
+	   *
+	   *    var a = math.complex(2, 3);
+	   *    var b = math.complex(-4, 1);
+	   *    math.add(a, b);               // returns Complex -2 + 4i
+	   *
+	   *    math.add([1, 2, 3], 4);       // returns Array [5, 6, 7]
+	   *
+	   *    var c = math.unit('5 cm');
+	   *    var d = math.unit('2.1 mm');
+	   *    math.add(c, d);               // returns Unit 52.1 mm
+	   *
+	   * See also:
+	   *
+	   *    subtract
+	   *
+	   * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} x First value to add
+	   * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} y Second value to add
+	   * @return {Number | BigNumber | Complex | Unit | String | Array | Matrix} Sum of `x` and `y`
+	   */
+	  math.add = function add(x, y) {
+	    if (arguments.length != 2) {
+	      throw new math.error.ArgumentsError('add', arguments.length, 2);
+	    }
+
+	    if (isNumber(x)) {
+	      if (isNumber(y)) {
+	        // number + number
+	        return x + y;
+	      }
+	      else if (isComplex(y)) {
+	        // number + complex
+	        return new Complex(
+	            x + y.re,
+	            y.im
+	        )
+	      }
+	    }
+
+	    if (isComplex(x)) {
+	      if (isComplex(y)) {
+	        // complex + complex
+	        return new Complex(
+	            x.re + y.re,
+	            x.im + y.im
+	        );
+	      }
+	      else if (isNumber(y)) {
+	        // complex + number
+	        return new Complex(
+	            x.re + y,
+	            x.im
+	        )
+	      }
+	    }
+
+	    if (isUnit(x)) {
+	      if (isUnit(y)) {
+	        if (x.value == null) {
+	          throw new Error('Parameter x contains a unit with undefined value');
+	        }
+
+	        if (y.value == null) {
+	          throw new Error('Parameter y contains a unit with undefined value');
+	        }
+
+	        if (!x.equalBase(y)) {
+	          throw new Error('Units do not match');
+	        }
+
+	        var res = x.clone();
+	        res.value += y.value;
+	        res.fixPrefix = false;
+	        return res;
+	      }
+	    }
+
+	    if (x instanceof BigNumber) {
+	      // try to convert to big number
+	      if (isNumber(y)) {
+	        y = BigNumber.convert(y);
+	      }
+	      else if (isBoolean(y) || y === null) {
+	        y = new BigNumber(y ? 1 : 0);
+	      }
+
+	      if (y instanceof BigNumber) {
+	        return x.plus(y);
+	      }
+
+	      // downgrade to Number
+	      return add(x.toNumber(), y);
+	    }
+	    if (y instanceof BigNumber) {
+	      // try to convert to big number
+	      if (isNumber(x)) {
+	        x = BigNumber.convert(x);
+	      }
+	      else if (isBoolean(x) || x === null) {
+	        x = new BigNumber(x ? 1 : 0);
+	      }
+
+	      if (x instanceof BigNumber) {
+	        return x.plus(y)
+	      }
+
+	      // downgrade to Number
+	      return add(x, y.toNumber());
+	    }
+
+	    if (isCollection(x) || isCollection(y)) {
+	      return collection.deepMap2(x, y, add);
+	    }
+
+	    if (isString(x) || isString(y)) {
+	      return x + y;
+	    }
+
+	    if (isBoolean(x) || x === null) {
+	      return add(+x, y);
+	    }
+	    if (isBoolean(y) || y === null) {
+	      return add(x, +y);
+	    }
+
+	    throw new math.error.UnsupportedTypeError('add', math['typeof'](x), math['typeof'](y));
+	  };
+	};
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (math) {
+	  var util = __webpack_require__(147),
+
+	      BigNumber = math.type.BigNumber,
+	      Complex = __webpack_require__(6),
+	      collection = __webpack_require__(13),
+
+	      isNumber = util.number.isNumber,
+	      isBoolean = util['boolean'].isBoolean,
+	      isCollection =collection.isCollection,
+	      isComplex = Complex.isComplex;
+
+	  /**
+	   * Round a value towards plus infinity
+	   * If `x` is complex, both real and imaginary part are rounded towards plus infinity.
+	   * For matrices, the function is evaluated element wise.
+	   *
+	   * Syntax:
+	   *
+	   *    math.ceil(x)
+	   *
+	   * Examples:
+	   *
+	   *    math.ceil(3.2);               // returns Number 4
+	   *    math.ceil(3.8);               // returns Number 4
+	   *    math.ceil(-4.2);              // returns Number -4
+	   *    math.ceil(-4.7);              // returns Number -4
+	   *
+	   *    var c = math.complex(3.2, -2.7);
+	   *    math.ceil(c);                 // returns Complex 4 - 2i
+	   *
+	   *    math.ceil([3.2, 3.8, -4.7]);  // returns Array [4, 4, -4]
+	   *
+	   * See also:
+	   *
+	   *    floor, fix, round
+	   *
+	   * @param  {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  Number to be rounded
+	   * @return {Number | BigNumber | Complex | Array | Matrix} Rounded value
+	   */
+	  math.ceil = function ceil(x) {
+	    if (arguments.length != 1) {
+	      throw new math.error.ArgumentsError('ceil', arguments.length, 1);
+	    }
+
+	    if (isNumber(x)) {
+	      return Math.ceil(x);
+	    }
+
+	    if (isComplex(x)) {
+	      return new Complex (
+	          Math.ceil(x.re),
+	          Math.ceil(x.im)
+	      );
+	    }
+
+	    if (x instanceof BigNumber) {
+	      return x.ceil();
+	    }
+
+	    if (isCollection(x)) {
+	      return collection.deepMap(x, ceil);
+	    }
+
+	    if (isBoolean(x) || x === null) {
+	      return Math.ceil(x);
+	    }
+
+	    throw new math.error.UnsupportedTypeError('ceil', math['typeof'](x));
+	  };
+	};
+
+
+/***/ },
 /* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6908,54 +6919,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = function (math) {
 	  var util = __webpack_require__(147),
-	      collection = __webpack_require__(13);
-
-	  /**
-	   * Calculates the power of x to y element wise.
-	   *
-	   * Syntax:
-	   *
-	   *    math.dotPow(x, y)
-	   *
-	   * Examples:
-	   *
-	   *    math.dotPow(2, 3);            // returns Number 8
-	   *
-	   *    var a = [[1, 2], [4, 3]];
-	   *    math.dotPow(a, 2);            // returns Array [[1, 4], [16, 9]]
-	   *    math.pow(a, 2);               // returns Array [[9, 8], [16, 17]]
-	   *
-	   * See also:
-	   *
-	   *    pow, sqrt, multiply
-	   *
-	   * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x  The base
-	   * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y  The exponent
-	   * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                     The value of `x` to the power `y`
-	   */
-	  math.dotPow = function dotPow(x, y) {
-	    if (arguments.length != 2) {
-	      throw new math.error.ArgumentsError('dotPow', arguments.length, 2);
-	    }
-
-	    return collection.deepMap2(x, y, math.pow);
-	  };
-
-	  // TODO: deprecated since version 0.23.0, clean up some day
-	  math.epow = function () {
-	    throw new Error('Function epow is renamed to dotPow');
-	  }
-	};
-
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = function (math) {
-	  var util = __webpack_require__(147),
 
 	      BigNumber = math.type.BigNumber,
 	      Complex = __webpack_require__(6),
@@ -7026,6 +6989,54 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    throw new math.error.UnsupportedTypeError('exp', math['typeof'](x));
 	  };
+	};
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (math) {
+	  var util = __webpack_require__(147),
+	      collection = __webpack_require__(13);
+
+	  /**
+	   * Calculates the power of x to y element wise.
+	   *
+	   * Syntax:
+	   *
+	   *    math.dotPow(x, y)
+	   *
+	   * Examples:
+	   *
+	   *    math.dotPow(2, 3);            // returns Number 8
+	   *
+	   *    var a = [[1, 2], [4, 3]];
+	   *    math.dotPow(a, 2);            // returns Array [[1, 4], [16, 9]]
+	   *    math.pow(a, 2);               // returns Array [[9, 8], [16, 17]]
+	   *
+	   * See also:
+	   *
+	   *    pow, sqrt, multiply
+	   *
+	   * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x  The base
+	   * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y  The exponent
+	   * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                     The value of `x` to the power `y`
+	   */
+	  math.dotPow = function dotPow(x, y) {
+	    if (arguments.length != 2) {
+	      throw new math.error.ArgumentsError('dotPow', arguments.length, 2);
+	    }
+
+	    return collection.deepMap2(x, y, math.pow);
+	  };
+
+	  // TODO: deprecated since version 0.23.0, clean up some day
+	  math.epow = function () {
+	    throw new Error('Function epow is renamed to dotPow');
+	  }
 	};
 
 
@@ -7965,7 +7976,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              throw new RangeError('Dimension mismatch in multiplication. ' +
 	                  'Length of A must match length of B ' +
 	                  '(A is ' + sizeX[0] +
-	                  ', B is ' + sizeY[0] +
+	                  ', B is ' + sizeY[0] + ', ' +
 	                  sizeX[0] + ' != ' + sizeY[0] + ')');
 	            }
 
@@ -10801,83 +10812,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      Complex = __webpack_require__(6),
 	      collection = __webpack_require__(13),
 
-	      isNumber = util.number.isNumber,
-	      isBoolean = util['boolean'].isBoolean,
-	      isCollection = collection.isCollection,
-	      isComplex = Complex.isComplex;
-
-	  /**
-	   * Compute the argument of a complex value.
-	   * For a complex number `a + bi`, the argument is computed as `atan2(b, a)`.
-	   *
-	   * For matrices, the function is evaluated element wise.
-	   *
-	   * Syntax:
-	   *
-	   *    math.arg(x)
-	   *
-	   * Examples:
-	   *
-	   *    var a = math.complex(2, 2);
-	   *    math.arg(a) / math.pi;          // returns Number 0.25
-	   *
-	   *    var b = math.complex('2 + 3i');
-	   *    math.arg(b);                    // returns Number 0.982793723247329
-	   *    math.atan2(3, 2);               // returns Number 0.982793723247329
-	   *
-	   * See also:
-	   *
-	   *    re, im, conj, abs
-	   *
-	   * @param {Number | Complex | Array | Matrix | Boolean | null} x
-	   *            A complex number or array with complex numbers
-	   * @return {Number | Array | Matrix} The argument of x
-	   */
-	  math.arg = function arg(x) {
-	    if (arguments.length != 1) {
-	      throw new math.error.ArgumentsError('arg', arguments.length, 1);
-	    }
-
-	    if (isNumber(x)) {
-	      return Math.atan2(0, x);
-	    }
-
-	    if (isComplex(x)) {
-	      return Math.atan2(x.im, x.re);
-	    }
-
-	    if (isCollection(x)) {
-	      return collection.deepMap(x, arg);
-	    }
-
-	    if (isBoolean(x) || x === null) {
-	      return arg(+x);
-	    }
-
-	    if (x instanceof BigNumber) {
-	      // downgrade to Number
-	      // TODO: implement BigNumber support
-	      return arg(x.toNumber());
-	    }
-
-	    throw new math.error.UnsupportedTypeError('arg', math['typeof'](x));
-	  };
-	};
-
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = function (math) {
-	  var util = __webpack_require__(147),
-
-	      BigNumber = math.type.BigNumber,
-	      Complex = __webpack_require__(6),
-	      collection = __webpack_require__(13),
-
 	      object = util.object,
 	      isNumber = util.number.isNumber,
 	      isBoolean = util['boolean'].isBoolean,
@@ -10941,7 +10875,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11013,6 +10947,83 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    // return a clone of the value itself for all non-complex values
 	    return object.clone(x);
+	  };
+	};
+
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (math) {
+	  var util = __webpack_require__(147),
+
+	      BigNumber = math.type.BigNumber,
+	      Complex = __webpack_require__(6),
+	      collection = __webpack_require__(13),
+
+	      isNumber = util.number.isNumber,
+	      isBoolean = util['boolean'].isBoolean,
+	      isCollection = collection.isCollection,
+	      isComplex = Complex.isComplex;
+
+	  /**
+	   * Compute the argument of a complex value.
+	   * For a complex number `a + bi`, the argument is computed as `atan2(b, a)`.
+	   *
+	   * For matrices, the function is evaluated element wise.
+	   *
+	   * Syntax:
+	   *
+	   *    math.arg(x)
+	   *
+	   * Examples:
+	   *
+	   *    var a = math.complex(2, 2);
+	   *    math.arg(a) / math.pi;          // returns Number 0.25
+	   *
+	   *    var b = math.complex('2 + 3i');
+	   *    math.arg(b);                    // returns Number 0.982793723247329
+	   *    math.atan2(3, 2);               // returns Number 0.982793723247329
+	   *
+	   * See also:
+	   *
+	   *    re, im, conj, abs
+	   *
+	   * @param {Number | Complex | Array | Matrix | Boolean | null} x
+	   *            A complex number or array with complex numbers
+	   * @return {Number | Array | Matrix} The argument of x
+	   */
+	  math.arg = function arg(x) {
+	    if (arguments.length != 1) {
+	      throw new math.error.ArgumentsError('arg', arguments.length, 1);
+	    }
+
+	    if (isNumber(x)) {
+	      return Math.atan2(0, x);
+	    }
+
+	    if (isComplex(x)) {
+	      return Math.atan2(x.im, x.re);
+	    }
+
+	    if (isCollection(x)) {
+	      return collection.deepMap(x, arg);
+	    }
+
+	    if (isBoolean(x) || x === null) {
+	      return arg(+x);
+	    }
+
+	    if (x instanceof BigNumber) {
+	      // downgrade to Number
+	      // TODO: implement BigNumber support
+	      return arg(x.toNumber());
+	    }
+
+	    throw new math.error.UnsupportedTypeError('arg', math['typeof'](x));
 	  };
 	};
 
@@ -12017,6 +12028,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = function(math) {
 	  var array = __webpack_require__(140);
 	  var Matrix = __webpack_require__(9);
+	  var multiply = math.multiply;
+	  var subtract = math.subtract;
 
 	  /**
 	   * Calculate the cross product for two vectors in three dimensional space.
@@ -12084,11 +12097,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	      '(Size A = [' + xSize.join(', ') + '], B = [' + ySize.join(', ') + '])');
 	    }
 
-	    return [
-	      math.subtract(math.multiply(x[1], y[2]), math.multiply(x[2], y[1])),
-	      math.subtract(math.multiply(x[2], y[0]), math.multiply(x[0], y[2])),
-	      math.subtract(math.multiply(x[0], y[1]), math.multiply(x[1], y[0]))
-	    ];
+	    return [_det2(x, y, 1, 2), _det2(x, y, 2, 0), _det2(x, y, 0, 1)];
+	  }
+
+	  /**
+	   * Calculate determinant using the two columns (four elements) in the two arrays.
+	   * This function can simplify the notation of _cross.
+	   * @param {Array} a First array
+	   * @param {Array} b Second array
+	   * @param {Number} index1 Zero-based index of the first column.
+	   * @param {Number} index2 Zero-based index of the second column.
+	   * @returns {*} Returns the determinant
+	   * @private
+	   */
+	  function _det2(a, b, index1, index2){
+	    return math.subtract(math.multiply(a[index1], b[index2]), math.multiply(a[index2], b[index1]));
 	  }
 	};
 
@@ -21827,9 +21850,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // AMD.
 	    if ( true ) {
 
-	        !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+	        !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
 	            return DecimalConstructor;
-	        }.call(exports, __webpack_require__, exports, module)), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 	    // Node and other environments that support module.exports.
 	    } else if ( typeof module != 'undefined' && module.exports ) {
@@ -21854,7 +21877,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        global['Decimal'] = DecimalConstructor;
 	    }
-
 	})(this);
 
 
@@ -24774,6 +24796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
+	webpackContext.id = 182;
 
 
 /***/ },
@@ -27900,4 +27923,4 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }
 /******/ ])
-})
+});
