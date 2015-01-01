@@ -8,9 +8,11 @@ var gutil = require('gulp-util'),
 // names to ignore
 var ignore = [
   // functions not supported by the parser:
-  'compile', 'parse', 'parser', 'select', 'print', 'config', 'in', 'create',
-    // deprecated functions:
-  'workspace', 'unary', 'edivide', 'emultiply', 'epow', 'smallereq', 'largereq', 'ifElse'
+  'compile', 'parse', 'parser', 'chain', 'print', 'config', 'in', 'create',
+  // private functions:
+  '_divide',
+  // deprecated functions:
+  'workspace', 'unary', 'edivide', 'emultiply', 'epow', 'smallereq', 'largereq', 'ifElse', 'select'
 ];
 
 // test whether all functions are documented

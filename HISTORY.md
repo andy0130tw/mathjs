@@ -1,7 +1,26 @@
 # History
 
 
-## not yet released, version 1.1.1
+## not yet released, version 1.2.1-SNAPSHOT
+
+- Some minor fixes in the docs.
+
+
+## 2014-12-25, version 1.2.0
+
+- Support for bitwise operations `bitAnd`, `bitNot`, `bitOr`, `bitXor`,
+  `leftShift`, `rightArithShift`, and `rightLogShift`. Thanks @BigFav.
+- Support for boolean operations `and`, `not`, `or`, `xor`. Thanks @BigFav.
+- Support for `gamma` function. Thanks @BigFav.
+- Converting a unit without value will now result in a unit *with* value,
+  i.e. `inch in cm` will return `2.54 cm` instead of `cm`.
+- Improved accuracy of `sinh` and complex `cos` and `sin`. Thanks @pavpanchekha.
+- Renamed function `select` to `chain`. The old function `select` will remain
+  functional until math.js v2.0.
+- Upgraded to decimal.js v4.0.1 (BigNumber library).
+
+
+## 2014-11-22, version 1.1.1
 
 - Fixed Unit divided by Number returning zero.
 - Fixed BigNumber downgrading to Number for a negative base in `pow`.

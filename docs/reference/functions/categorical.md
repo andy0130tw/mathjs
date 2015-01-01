@@ -31,6 +31,16 @@
 - [unaryPlus(x)](unaryPlus.md)
 - [xgcd(a, b)](xgcd.md)
 
+## bitwise
+
+- [bitAnd(x, y)](bitAnd.md)
+- [bitNot(x)](bitNot.md)
+- [bitOr(x, y)](bitOr.md)
+- [bitXor(x, y)](bitXor.md)
+- [leftShift(x, y)](leftShift.md)
+- [rightArithShift(x, y)](rightArithShift.md)
+- [rightLogShift(x, y)](rightLogShift.md)
+
 ## complex
 
 - [arg(x)](arg.md)
@@ -42,12 +52,12 @@
 
 - [bignumber(x)](bignumber.md)
 - [boolean(x)](boolean.md)
+- [chain(value)](chain.md)
 - [complex(re, im)](complex.md)
 - [index(range1, range2, ...)](index.md)
 - [matrix(x)](matrix.md)
 - [number(value)](number.md)
 - [parser()](parser.md)
-- [select(value)](select.md)
 - [string(value)](string.md)
 - [unit(x)](unit.md)
 
@@ -57,6 +67,13 @@
 - [eval(expr [, scope])](eval.md)
 - [help(search)](help.md)
 - [parse(expr [, scope])](parse.md)
+
+## logical
+
+- [and(x, y)](and.md)
+- [not(x)](not.md)
+- [or(x, y)](or.md)
+- [xor(x, y)](xor.md)
 
 ## matrix
 
@@ -82,6 +99,7 @@
 - [combinations(n, k)](combinations.md)
 - [distribution(name)](distribution.md)
 - [factorial(n)](factorial.md)
+- [gamma(n)](gamma.md)
 - [permutations(n)](permutations.md)
 - [pickRandom(array)](pickRandom.md)
 - [random([min, max])](random.md)
