@@ -86,6 +86,9 @@ Operator    | Name                    | Syntax      | Associativity | Example   
 `<=`        | Smallereq               | `x <= y`    | Left to right | `4 <= 3`              | `false`
 `>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6`          | `true`
 
+
+## Precedence
+
 The operators have the following precedence, from highest to lowest:
 
 Operators                         | Description
@@ -337,6 +340,10 @@ math.eval('5.4 kg');                    // Unit, 5.4 kg
 math.eval('2 inch to cm');              // Unit, 5.08 cm
 math.eval('20 celsius in fahrenheit');  // Unit, ~68 fahrenheit
 
+// convert a unit to a number
+// A second parameter with the unit for the exported number must be provided
+math.eval('number(5 cm, mm)');          // Number, 50
+
 // calculations with units
 math.eval('0.5kg + 33g');               // Unit, 0.533 kg
 math.eval('3 inch + 2 cm');             // Unit, 3.7874 inch
@@ -459,7 +466,7 @@ with an entry for every visible statement.
 
 ```js
 // a multi line expression
-math.eval('1 * 3 \n 2 * 3 \n 3 * 3');   // ResultSet, [1, 3, 9]
+math.eval('1 * 3 \n 2 * 3 \n 3 * 3');   // ResultSet, [3, 6, 9]
 
 // semicolon statements are hided from the output
 math.eval('a=3; b=4; a + b \n a * b');  // ResultSet, [7, 12]

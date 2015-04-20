@@ -43,21 +43,21 @@ describe('rightArithShift', function () {
     assert.deepEqual(rightArithShift(bignumber(17), bignumber(3)), bignumber(2));
     assert.deepEqual(rightArithShift(bignumber('633825300114114700748351602688000'), bignumber(100)), bignumber(500));
     assert.deepEqual(rightArithShift(bignumber(-17), bignumber(3)), bignumber(-3));
-    assert.deepEqual(rightArithShift(bignumber(-17), bignumber(-3)).toString(), 'NaN');
-    assert.deepEqual(rightArithShift(bignumber(Infinity), bignumber(Infinity)).toString(), 'NaN');
+    assert.equal(rightArithShift(bignumber(-17), bignumber(-3)).isNaN(), true);
+    assert.equal(rightArithShift(bignumber(Infinity), bignumber(Infinity)).isNaN(), true);
     assert.deepEqual(rightArithShift(bignumber(-Infinity), bignumber(Infinity)), bignumber(-1));
   });
 
   it('should right arithmetically shift mixed numbers and bignumbers', function () {
     assert.deepEqual(rightArithShift(bignumber(17), 3), bignumber(2));
     assert.deepEqual(rightArithShift(bignumber('-633825300114114700748351602688000'), 100), bignumber(-500));
-    assert.deepEqual(rightArithShift(bignumber(-17), -3).toString(), 'NaN');
+    assert.equal(rightArithShift(bignumber(-17), -3).isNaN(), true);
     assert.deepEqual(rightArithShift(17, bignumber(3)), bignumber(2));
     assert.deepEqual(rightArithShift(-17, bignumber(3)), bignumber(-3));
-    assert.deepEqual(rightArithShift(-3, bignumber(-17)).toString(), 'NaN');
+    assert.equal(rightArithShift(-3, bignumber(-17)).isNaN(), true);
     assert.deepEqual(rightArithShift(bignumber(-Infinity), Infinity), bignumber(-1));
-    assert.deepEqual(rightArithShift(bignumber(Infinity), Infinity).toString(), 'NaN');
-    assert.deepEqual(rightArithShift(Infinity, bignumber(Infinity)).toString(), 'NaN');
+    assert.equal(rightArithShift(bignumber(Infinity), Infinity).isNaN(), true);
+    assert.equal(rightArithShift(Infinity, bignumber(Infinity)).isNaN(), true);
   });
 
   it('should right arithmetically shift mixed booleans and bignumbers', function () {
@@ -129,6 +129,11 @@ describe('rightArithShift', function () {
     assert.throws(function () {rightArithShift('foo', true)}, error.UnsupportedTypeError);
     assert.throws(function () {rightArithShift(true, undefined)}, error.UnsupportedTypeError);
     assert.throws(function () {rightArithShift(undefined, true)}, error.UnsupportedTypeError);
+  });
+
+  it('should LaTeX rightArithShift', function () {
+    var expression = math.parse('rightArithShift(3,2)');
+    assert.equal(expression.toTex(), '\\left(3>>2\\right)');
   });
 
 });

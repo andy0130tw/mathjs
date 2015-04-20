@@ -193,6 +193,36 @@ describe('unit', function() {
       assert.equal(u2.fixPrefix, true);
     });
 
+    it ('should convert a binary prefixes (1)', function () {
+      var u1 = new Unit(1, 'Kib');
+      assert.equal(u1.value, 1024);
+      assert.equal(u1.unit.name, 'b');
+      assert.equal(u1.prefix.name, 'Ki');
+      assert.equal(u1.fixPrefix, false);
+
+      var u2 = u1.to(new Unit(null, 'b'));
+      assert.notStrictEqual(u1, u2); // u2 must be a clone
+      assert.equal(u2.value, 1024);     // u2 must have a value
+      assert.equal(u2.unit.name, 'b');
+      assert.equal(u2.prefix.name, '');
+      assert.equal(u2.fixPrefix, true);
+    });
+
+    it ('should convert a binary prefixes (2)', function () {
+      var u1 = new Unit(1, 'kb');
+      assert.equal(u1.value, 1000);
+      assert.equal(u1.unit.name, 'b');
+      assert.equal(u1.prefix.name, 'k');
+      assert.equal(u1.fixPrefix, false);
+
+      var u2 = u1.to(new Unit(null, 'b'));
+      assert.notStrictEqual(u1, u2); // u2 must be a clone
+      assert.equal(u2.value, 1000);     // u2 must have a value
+      assert.equal(u2.unit.name, 'b');
+      assert.equal(u2.prefix.name, '');
+      assert.equal(u2.fixPrefix, true);
+    });
+
     it ('should throw an error when converting to an incompatible unit', function () {
       var u1 = new Unit(5000, 'cm');
       assert.throws(function () {u1.to('kg')}, /Units do not match/);
@@ -240,6 +270,29 @@ describe('unit', function() {
       assert.strictEqual(new Unit(5000, 'cm').valueOf(), '50 m');
       assert.strictEqual(new Unit(5, 'kg').valueOf(), '5 kg');
       assert.strictEqual(new Unit(2/3, 'm').valueOf(), '0.6666666666666666 m');
+    });
+
+  });
+
+  describe('json', function () {
+
+    it('toJSON', function () {
+      assert.deepEqual(new Unit(5, 'cm').toJSON(),
+          {'mathjs': 'Unit', value: 5, unit: 'cm', fixPrefix: false});
+      assert.deepEqual(new Unit(5, 'cm').to('mm').toJSON(),
+          {'mathjs': 'Unit', value: 50, unit: 'mm', fixPrefix: true});
+    });
+
+    it('fromJSON', function () {
+      var u1 = new Unit(5, 'cm');
+      var u2 = Unit.fromJSON({'mathjs': 'Unit', value: 5, unit: 'cm', fixPrefix: false});
+      assert.ok(u2 instanceof Unit);
+      assert.deepEqual(u2, u1);
+
+      var u3 = new Unit(5, 'cm').to('mm');
+      var u4 = Unit.fromJSON({'mathjs': 'Unit', value: 50, unit: 'mm', fixPrefix: true});
+      assert.ok(u4 instanceof Unit);
+      assert.deepEqual(u4, u3);
     });
 
   });
